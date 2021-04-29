@@ -37,7 +37,7 @@ const resolvers = {
       })
     },
     updateUser: (_parent, args: { email: string }, context: Context) => {
-      return context.prisma.user.update({  
+      return context.prisma.user.update({
         where: {
           email: args.email,
         },
@@ -66,4 +66,3 @@ export const schema = makeExecutableSchema({
 `;
 
 export = prismagraphqlString;
-

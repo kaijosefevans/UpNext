@@ -36,8 +36,9 @@ export function activate(context: vscode.ExtensionContext) {
 
       const divider = isWin ? "\\" : "/";
 
-      //Creates package.json for user
+      //Creates package.json and .env for user in root directory
       makeFile(myPath, 'package.json', pkgjsonString);
+      makeFile(myPath, '.env', envString);
       //Creates pages directory with our homepage and signup page
       makeFolder(myPath, 'pages');
       makeFile(`${myPath}${divider}pages`, '_app.js', appString);
@@ -50,8 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
       //Creates prisma directory with our prisma schemas and env file for sensitive data
       makeFolder(myPath, 'prisma');
       makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
-      makeFile(`${myPath}${divider}prisma`, 'dev.db', '');
-      makeFile(myPath, '.env', envString);
+      // makeFile(`${myPath}${divider}prisma`, 'dev.db', '');
       //Creates server directory with server file along with context, typedefs, and resolvers
       makeFolder(myPath, 'server');
       makeFile(`${myPath}${divider}server`, 'apolloServer.ts', apolloString);
@@ -64,7 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
       terminal.sendText('npm install @prisma/client');
       terminal.sendText('npx prisma migrate dev --name init');
       terminal.show();
-    } 
+    }
   );
   // if context matches command, activate disposable function
   context.subscriptions.push(disposable);

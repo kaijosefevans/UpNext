@@ -33,8 +33,9 @@ function activate(context) {
         const isWin = process.platform === 'win32';
         const terminal = vscode.window.createTerminal('UpNext');
         const divider = isWin ? "\\" : "/";
-        //Creates package.json for user
+        //Creates package.json and .env for user in root directory
         constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+        constructors_1.makeFile(myPath, '.env', envString);
         //Creates pages directory with our homepage and signup page
         constructors_1.makeFolder(myPath, 'pages');
         constructors_1.makeFile(`${myPath}${divider}pages`, '_app.js', appString);
@@ -47,8 +48,7 @@ function activate(context) {
         //Creates prisma directory with our prisma schemas and env file for sensitive data
         constructors_1.makeFolder(myPath, 'prisma');
         constructors_1.makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
-        constructors_1.makeFile(`${myPath}${divider}prisma`, 'dev.db', '');
-        constructors_1.makeFile(myPath, '.env', envString);
+        // makeFile(`${myPath}${divider}prisma`, 'dev.db', '');
         //Creates server directory with server file along with context, typedefs, and resolvers
         constructors_1.makeFolder(myPath, 'server');
         constructors_1.makeFile(`${myPath}${divider}server`, 'apolloServer.ts', apolloString);
