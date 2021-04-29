@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"file":"envBoilerplate.js","sourceRoot":"","sources":["../../../src/Boilerplates/rootBoilerplate/envBoilerplate.ts"],"names":[],"mappings":";AAAA,MAAM,SAAS,GAAG;;;;;;6BAMW,CAAC;AAE9B,iBAAS,SAAS,CAAC"}
+=======
+{"version":3,"file":"envBoilerplate.js","sourceRoot":"","sources":["../../../src/Boilerplates/rootBoilerplate/envBoilerplate.ts"],"names":[],"mappings":";AAAA,MAAM,SAAS,GAAG;;;;;;;CAOjB,CAAC;AAEF,iBAAS,SAAS,CAAC"}
+>>>>>>> 71d0323469dbbe603f80d3b5de1ac31222c46389
