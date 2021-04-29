@@ -29,6 +29,7 @@ function activate(context) {
         // Display a message box to the user
         vscode.window.showInformationMessage('UpNext Running!');
         const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+<<<<<<< HEAD
         const isWin = process.platform === 'win32';
         const terminal = vscode.window.createTerminal('UpNext');
         const divider = isWin ? "\\" : "/";
@@ -64,6 +65,28 @@ function activate(context) {
         terminal.sendText('npm install @prisma/client');
         terminal.sendText('npx prisma migrate dev --name init');
         terminal.show();
+=======
+        let isWin = process.platform === 'win32';
+        let terminal = vscode.window.createTerminal('UpNext');
+        if (isWin) {
+            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+            constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
+            constructors_1.makeFolder(`${myPath}\\pages`, 'api');
+            constructors_1.makeFile(`${myPath}\\pages\\api`, 'message.js', messageString);
+            terminal.sendText('npm install next react react-dom');
+            terminal.show();
+        }
+        else {
+            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+            constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
+            constructors_1.makeFolder(`${myPath}/pages`, 'api');
+            constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
+            terminal.sendText('npm install next react react-dom');
+            terminal.show();
+        }
+>>>>>>> main
     });
     // if context matches command, activate disposable function
     context.subscriptions.push(disposable);
